@@ -69,7 +69,8 @@ attributes:
 form:
   - modules
   - extra_jupyter_args
-  - bc_account
+    # This isn't set up for our Gold stuff yet
+    #- bc_account
     # We don't use user-specified queues this way
     #  - bc_queue
   - bc_num_hours
