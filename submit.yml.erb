@@ -29,3 +29,18 @@ batch_connect:
 #  accounting_id: "account1"
 #  email_on_started: true
 #  native: # ... array of command line arguments ...
+script:
+    native:
+        - -pe
+        - smp
+        - <%= num_cores.blank? ? 1 : num_cores.to_i %>
+        - -l
+        - mem=<%= memory_gigs %>G
+        - -l
+        - tmpfs=<%= tmpfs_gigs %>G
+        - -M
+        - <%= ENV['USER'] %>@ucl.ac.uk
+        - -m
+        - <%= bc_email_on_started ? "b" : "n" %>
+        - <% if num_gpus != 0 %>-l<% end %>
+        - <% if num_gpus != 0 %>gpu=<%= num_gpus %><% end %>

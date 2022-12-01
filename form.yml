@@ -31,6 +31,32 @@ attributes:
   # command that launches the Jupyter notebook within the batch job
   extra_jupyter_args: ""
 
+  # These probably need to be pulled out and put somewhere they can be inherited from
+  memory_gigs:
+    widget: "number_field"
+    label: "Gigabytes of memory"
+    value: 4
+    required: true
+  tmpfs_gigs:
+    widget: "number_field"
+    label: "Gigabytes of temporary on-node storage ($TMPDIR)"
+    value: 4
+    required: true
+  num_cores:
+    widget: "number_field"
+    label: "Number of CPU cores to request"
+    value: 1
+    required: true
+  num_gpus:
+    widget: "select"
+    options:
+        - ["none", "0"]
+        - ["1", "1"]
+        - ["2", "2"]
+        - ["4", "4"]
+    label: "Number of GPUs to request"
+
+
 # All of the attributes that make up the Dashboard form (in respective order),
 # and made available to the submit configuration file and the template ERB
 # files
@@ -47,5 +73,9 @@ form:
     # We don't use user-specified queues this way
     #  - bc_queue
   - bc_num_hours
-  - bc_num_slots
+    #- bc_num_slots
+  - num_cores
+  - num_gpus
+  - memory_gigs
+  - tmpfs_gigs
   - bc_email_on_started
