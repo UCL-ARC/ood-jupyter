@@ -41,6 +41,6 @@ script:
         - -M
         - <%= ENV['USER'] %>@ucl.ac.uk
         - -m
-        - <%= bc_email_on_started ? "b" : "n" %>
+        - <%= (bc_email_on_started == "1") ? "b" : "n" %>
         - <% if num_gpus != 0 %>-l<% end %>
         - <% if num_gpus != 0 %>gpu=<%= num_gpus %><% end %>
