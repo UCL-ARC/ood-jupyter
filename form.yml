@@ -27,8 +27,8 @@ attributes:
   #     modules: "python/3.5 cuda/8.0.44"
   modules: "python3/recommended"
 
-  # Any extra command line arguments to feed to the `jupyter notebook ...`
-  # command that launches the Jupyter notebook within the batch job
+  # Any extra command line arguments to feed to the `jupyter lab ...`
+  # command that launches the Jupyter Lab within the batch job
   extra_jupyter_args: ""
 
   # These probably need to be pulled out and put somewhere they can be inherited from
