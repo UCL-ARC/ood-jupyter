@@ -35,9 +35,6 @@ port=$(find_port)
 # Generate SHA1 encrypted password (requires OpenSSL installed)
 SALT="$(create_passwd 16)"
 password="$(create_passwd 16)"
-# temporary
-SALT="salt"
-password="pepper"
 PASSWORD_SHA1="$(echo -n "${password}${SALT}" | openssl dgst -sha1 | awk '{print $NF}')"
 
 
